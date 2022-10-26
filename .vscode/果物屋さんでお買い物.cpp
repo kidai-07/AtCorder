@@ -13,8 +13,14 @@ int main() {
   }
  
   // リンゴ・パイナップルをそれぞれ1つずつ購入するとき合計S円になるような買い方が何通りあるか
-  // ここにプログラムを追記
 
-S - A.at(1) == B.at(i) ---こんな感じで多分ループさせる
-
+  int counts = 0;
+  for (int i = 0; i < N; i++) {
+    for (int j = 0; j < N; j++) {
+        if (S - A.at(j) == P.at(i)) {
+        counts++;
+        }
+    }
+  }
+  cout << counts << endl;
 }
