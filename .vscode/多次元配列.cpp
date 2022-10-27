@@ -32,4 +32,24 @@ data.at(0).size()//4列
 //1次元配列
 vector<要素の型> 変数名(要素数,初期値);
 //二次元配列
-vector<要素の型> 変数名(行数,vector<要素の型>(各行の要素数,行の初期値))
+vector<要素の型> 変数名(行数, vector<要素の型>(各行の要素数, 行の初期値))
+
+// N×0の二次元配列
+vector<vector<int>> test(N);//要素数0の配列test
+
+//多次元配列
+int main()
+{
+    int N;
+    cin >> N;
+    //N * 3 * 3の配列
+    vector<vector<vector<char>>> data(N, vector<vector<char>>(3, vector<char>(3)));
+
+    for (int i = 0; i < N; i++){
+        for(int j = 0; J < 3; j++){
+            for (int k =0; k < 3; k++){
+                cin >> data.at(i).at.(j).at(k);
+            }
+        }
+    }
+}
