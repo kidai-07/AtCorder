@@ -30,5 +30,28 @@ int main()
     // (ここで"試合結果の表"の2次元配列を宣言)
 
     //結果を受け取るフェーズ
-    //表を書き出すフェーズ
+    //表を書き出すフェーズ(aとbを計算して配列で渡せるようにすれば、表が書けるはず)
+    vector<int> a = {1, 2, 3};
+    for (int i = 0; i < 3; i++){
+        cout << a.at(i);
+        if(i == 2){
+        cout << endl;
+        }
+        else{
+        cout << " ";
+        }
+    }
+    vector<int> b = {1, 2, 3};
+    for (int i = 0; i < 3; i++)
+    {
+        cout << b.at(i);
+        if (i == 2)
+        {
+            cout << endl;
+        }
+        else
+        {
+            cout << " ";
+        }
+    }
 }
