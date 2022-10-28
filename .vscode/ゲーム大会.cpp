@@ -15,6 +15,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+<<<<<<< Updated upstream
 
 int main()
 {
@@ -54,4 +55,14 @@ int main()
             cout << " ";
         }
     }
+=======
+ 
+int main() {
+vector<vector<int>> data = {
+  {7, 4, 0, 8},
+  {2, 0, 3, 5},
+  {6, 1, 7, 0},
+};
+cout << vector << endl;
+>>>>>>> Stashed changes
 }
