@@ -1,23 +1,3 @@
-//あるゲーム大会にはN人が参加しM試合が行われました。
-//各参加者には1からNの番号が割り当てられています。
-// M回の試合がすべて終了した時点での試合結果の表を作成し、出力してください。
-//標準入力
-//N M 
-//A B
-//A2 B2...
-
-//例えば
-//3 2
-//1 2
-//3 1
-
-//つまり
-//2* Mの行列を入力として受け取り
-//N*Nの行列を出力する
-
-//パターン分けとして
-//Rabは●、Rbaは×、それ以外は-
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -30,36 +10,52 @@ int main()
 	{
 		cin >> A.at(i) >> B.at(i);
 	}
-	//つまり{A,A2,A3}の行列と、{B,B1,B2}といった行列ができている状態。
-
-	vector<vector<char>> data(N,vector<char>(N));//N*N配列の枠を宣言
-
-	for (int i = 0; i < N; i++){
-		for (int j = 0; j < N; j++){//この条件分岐が惜しい気がする、ここまでで回すと「out of range」になる
-			if (i == A.at(i) && j == B.at(j))
+	//つまり{A,A2,A3}の行列(勝った人一覧)と、{B,B1,B2}(負けた人一覧)といった行列ができている状態。
+	vector<vector<char>> data(N, vector<char>(N)); // N*N配列の枠を宣言
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+		{
+			//配列「data」の、i行目j列の情報の定義
+			if (i == j)
 			{
-				data.at(i).at(j) = 'o';
+				data.at(i).at(j) = '-'; //同じ人が当たるマスは「-」
 			}
-			else if (i == B.at(i) && j == A.at(j))
+			else
+			{
+				for (int k = 1; k < M; k++)
 				{
-					data.at(i).at(j) = 'x';
+					if (i == A.at(k) && j == B.at(k))
+					{
+						data.at(i).at(j) = 'o'; // iの数字が「A」にあった場合
+					}
+					else if (i == B.at(k) && j == B.at(k))
+					{
+						data.at(i).at(j) = 'x'; // iの数字が「B」にあった場合
+					}
+					else
+					{
+						data.at(i).at(j) = '-'; //どちらでもないマスは「-」
+					}
 				}
-			else{
-				data.at(i).at(j) = '-';
 			}
 		}
 	}
-
-	for (int i = 0; i < N*N; i++)//表の出力
+	//表の出力
+	//配列dataを出力する
+	for (int x = 0; x < N; x++)
 	{
-		cout << data.at(i);
-		if (i/N == 0)
+		for (int i = 0; i < N; i++)
 		{
-			cout << endl; // 末尾なら改行
-		}
-		else
-		{
-			cout << " "; // それ以外なら空白
+			cout << data.at(x).at(i);
+			if (i == (N - 2))
+			{
+				cout << endl; // 末尾なら改行
+			}
+			else
+			{
+				cout << " "; // それ以外なら空白
+			}
 		}
 	}
 }
