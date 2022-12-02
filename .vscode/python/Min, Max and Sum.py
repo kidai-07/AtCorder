@@ -1,13 +1,8 @@
-n = int(input())
-list = [map(int, input().split())]
+N = int(input())
+A = list(map(int,input().split())) ## mapで受け取った場合、list()をかける必要がある
 
-sorted_list = [list.sort()]
-sorted_list_r = [list.sort(reverse=True)]
+x = min(A)
+y = max(A)
+z = sum(A)
 
-mn = int(sorted_list[0])
-mx = int(sorted_list_r[0])
-sm = (mn + mx)
-
-print(mn,mx,sm)
-
----データ型の指定エラーが出る
+print(x,y,z)
