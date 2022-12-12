@@ -9,3 +9,4 @@ while i < 3000: # inputの数とずれているとエラーになる
 	Y = sorted_numbers[1]
 	print(X, Y)
 	i += 1
+	
